@@ -107,7 +107,7 @@ jobs:
           fetch-depth: 2
       - name: Fortify App and Release Name
         id: fortify-app-and-rel-name
-        uses: fortify-presales/github-actions/fortify-app-and-release-name@main
+        uses: edguerreros/github-actions/fortify-app-and-release-name@main
         with:
           default_fortify_app_name: ${{ env.DEFAULT_APP_NAME }}
           default_fortify_release_name: ${{ env.DEFAULT_VERSION_NAME }}
@@ -123,7 +123,7 @@ jobs:
           FOD_RELEASE_NAME: ${{ steps.fortify-app-and-rel-name.outputs.release_name }}          
       - name: Gradle FoD SAST scan
         id: gradle-fod-sast-scan
-        uses: fortify-presales/github-actions/gradle-fod-sast-scan@main
+        uses: edguerreros/github-actions/gradle-fod-sast-scan@main
         with:
           working_directory: ${{ env.BASE_DIR }}
           fod_url: ${{ vars.FOD_URL }}
@@ -176,14 +176,14 @@ jobs:
           fetch-depth: 2
       - name: Fortify App and Release Name
         id: fortify-app-and-rel-name
-        uses: fortify-presales/github-actions/fortify-app-and-release-name@main
+        uses: edguerreros/github-actions/fortify-app-and-release-name@main
         with:
           default_fortify_app_name: ${{ env.DEFAULT_APP_NAME }}
           default_fortify_release_name: ${{ github.ref_name }}
           app_name_postfix: ${{ vars.FORTIFY_APP_NAME_POSTFIX }}
       - name: FoD DAST scan
         id: fod-dast-scan
-        uses: fortify-presales/github-actions/fod-dast-scan@main
+        uses: edguerreros/github-actions/fod-dast-scan@main
         with:
           working_directory: ${{ env.BASE_DIR }}
           fod_url: ${{ vars.FOD_URL }}
@@ -215,7 +215,7 @@ jobs:
           default_fortify_release_name: ${{ github.ref_name }}
           app_name_postfix: ${{ vars.FORTIFY_APP_NAME_POSTFIX }}
       - name: Verify FoD Security Policy
-        uses: fortify-presales/github-actions/verify-fod-security-policy@main
+        uses: edguerreros/github-actions/verify-fod-security-policy@main
         with:
           fod_url: ${{ vars.FOD_URL }}
           fod_api_url: ${{ vars.FOD_API_URL }}
