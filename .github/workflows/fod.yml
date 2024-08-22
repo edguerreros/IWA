@@ -186,7 +186,6 @@ jobs:
         uses: edguerreros/github-actions/fod-dast-scan@main
         with:
           working_directory: ${{ env.BASE_DIR }}
-          fod_url: ${{ vars.FOD_URL }}
           fod_api_url: ${{ vars.FOD_API_URL }}
           fod_client_id: ${{ secrets.FOD_CLIENT_ID }}
           fod_client_secret: ${{ secrets.FOD_CLIENT_SECRET }}
